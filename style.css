@@ -9,6 +9,7 @@
 :root{
     /* ===== Colors ===== */
     --primary-color: #0E4BF1;
+    --bg-color: white;
     --panel-color:hsl(0, 0%, 96%);
     --text-color: #000;
     --black-light-color: #707070;
@@ -17,6 +18,9 @@
     --box1-color: #4DA3FF;
     --box2-color: #FFE6AC;
     --box3-color: #E7D1FC;
+    --edit-color: green;
+    --delete-color: red;
+    --cryptoList-color: white;
     --title-icon-color: #fff;
     
     /* ====== Transition ====== */
@@ -44,12 +48,17 @@ p{
         font-weight: 300;
         color: var(--text-color);
 }
-body{
-    min-height: 100vh;
-    /* background-color: var(--primary-color); */
+a{
+    text-decoration: none;
 }
+
+body{
+    background-color: var(--panel-color);
+}
+
 body.dark{
     --primary-color: #3A3B3C;
+    --bg-color: #3A3B3C;
     --panel-color: #242526;
     --text-color: #CCC;
     --black-light-color: #CCC;
@@ -58,6 +67,9 @@ body.dark{
     --box1-color: #3A3B3C;
     --box2-color: #3A3B3C;
     --box3-color: #3A3B3C;
+    --edit-color: white;
+        --delete-color: white;
+    --cryptoList-color: #3A3B3C;
     --title-icon-color: #CCC;
 }
 /* === Custom Scroll Bar CSS === */
@@ -221,6 +233,15 @@ body.dark .switch:before{
     left: 20px;
 }
 
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+}
+
 .dashboard{
     position: relative;
     left: 250px;
@@ -305,10 +326,10 @@ nav.close ~ .dashboard .top{
 }
 .token-form{
     position: relative;
-    background-color: white;
+    background-color: var(--bg-color);
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.2) ;
     height: auto;
-    max-width: 700px;
+    max-width: 600px;
     width: 100%;
     margin: 0 auto;
     border-radius: 10px;
@@ -336,7 +357,7 @@ transition: var(--tran-05);
     position: relative;
         border: 1px solid var(--border-color);
         background-color: var(--panel-color);
-        padding: 1rem;
+        padding: .8rem;
         border-radius: 5px;
         height: 100%;
         width: 100%;
@@ -365,9 +386,10 @@ display: flex;
         flex-direction: column;
         align-items: flex-start;
         border-radius: 12px;
-        width: calc(100% / 3 - 20px);
+        width: calc(100% / 3 - 15px);
         padding: 25px 20px;
-        background-color: white;
+        background-color: var(--cryptoList-color);
+        color: var(--text-color);
         box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.2);
         transition: var(--tran-05);
         overflow: hidden;
@@ -421,17 +443,17 @@ display: flex;
 }
 
 .edit,.delete{
-    width: 130px;
+    width: 40%;
     display: flex;
     justify-content: center;
 }
 .edit{
     background-color: rgba(21, 219, 21, 0.404);
-    color: green;
+    color: var(--edit-color);
 }
 .delete{
     background-color: rgba(238, 30, 30, 0.404);
-    color: red;
+    color: var(--delete-color);
 }
 
 .top .search-box input{
@@ -567,6 +589,25 @@ display: flex;
 }
 
 
+/* Edit token Page */
+.edit-content{
+    width: 90%;
+    max-width: 600px;
+    background: white;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 3rem auto;
+}
+.my-2{
+    margin-top: 1.5rem;
+}
+.token-info{
+    margin: 1.3rem;
+    font-size: 20px;
+}
+
+
 @media (max-width: 1000px) {
     nav{
         width: 73px;
@@ -611,7 +652,7 @@ display: flex;
     }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 880px) {
     .dash-content .boxes .box{
         width: calc(100% / 2 - 15px);
         margin-top: 15px;
@@ -626,7 +667,31 @@ display: flex;
             margin: 40px 0 30px 0;
         }
 }
-@media (max-width: 560px) {
+@media (max-width: 660px) {
+    .form-row input::placeholder {
+          font-size: 16px;
+        }
+    .token-info {
+            margin: 1.3rem;
+            font-size: 14px;
+        }
+    h1 {
+            font-size: 19px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+    
+        h2 {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+    
+        p {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--text-color);
+        }
     .dash-content .boxes .box{
         width: 100% ;
     }
