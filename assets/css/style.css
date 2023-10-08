@@ -286,6 +286,17 @@ nav.close ~ .dashboard .top{
     margin: 0 30px;
 }
 
+
+.alert-box{
+    position: fixed;
+    background-color: green;
+    width: 100%;
+    height: auto;
+    top: 0;
+    right: 0;
+}
+
+
 /* Crypto Form  */
 
 .btn-box{
