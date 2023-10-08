@@ -351,21 +351,87 @@ transition: var(--tran-05);
 /* Crypto list  */
 
 .crypto-list{
+    margin-top: 1.5rem;
 display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
-.crypto-list .single-crypto{
+ .single-crypto{
+    position: relative;
     display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         border-radius: 12px;
-        width: calc(100% / 3 - 10px);
+        width: calc(100% / 3 - 20px);
         padding: 25px 20px;
-        background-color: var(--box1-color);
+        background-color: white;
+        box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.2);
         transition: var(--tran-05);
+        overflow: hidden;
+}
+
+.badge{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background-color: rgba(243, 209, 19, 0.233);
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(167, 167, 18);
+}
+
+.single-crypto-info{
+    margin-left: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.single-crypto-info .img-box{
+    width: 80px;
+    height: 80px;
+    background-color: green;
+    border-radius: 50%;
+}
+.additional-info{
+    margin-left: 2rem;
+}
+.additional-info h2{
+    margin-bottom: .8rem;
+}
+.additional-info p {
+    margin-bottom: .9rem;
+}
+
+.btn-list{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.edit,.delete{
+    width: 130px;
+    display: flex;
+    justify-content: center;
+}
+.edit{
+    background-color: rgba(21, 219, 21, 0.404);
+    color: green;
+}
+.delete{
+    background-color: rgba(238, 30, 30, 0.404);
+    color: red;
 }
 
 .top .search-box input{
@@ -564,6 +630,10 @@ display: flex;
     .dash-content .boxes .box{
         width: 100% ;
     }
+         .single-crypto {
+             width: 100%;
+            
+         }
 }
 @media (max-width: 400px) {
     nav{
