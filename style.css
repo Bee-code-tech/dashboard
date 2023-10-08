@@ -24,7 +24,26 @@
     --tran-03: all 0.3s ease;
     --tran-03: all 0.2s ease;
 }
+html{
+    scroll-behavior: smooth;
+}
 
+h1{
+    font-size: 26px;
+        font-weight: 500;
+        color: var(--text-color);
+}
+h2{
+    font-size: 16px;
+        font-weight: 500;
+        color: var(--text-color);
+}
+ 
+p{
+    font-size: 16px;
+        font-weight: 300;
+        color: var(--text-color);
+}
 body{
     min-height: 100vh;
     /* background-color: var(--primary-color); */
@@ -211,6 +230,7 @@ body.dark .switch:before{
     padding: 10px 14px;
     transition: var(--tran-05);
 }
+
 nav.close ~ .dashboard{
     left: 73px;
     width: calc(100% - 73px);
@@ -244,11 +264,116 @@ nav.close ~ .dashboard .top{
     width: 100%;
     margin: 0 30px;
 }
+
+/* Crypto Form  */
+
+.btn-box{
+    margin: 20px 0;
+}
+.text-center{
+    text-align: center;
+}
+.btn-submit{
+    display: flex;
+    justify-content: flex-end;
+}
+.btn{
+    display: inline-block;
+    font-size: 16px;
+    padding: .5rem 1rem;
+    outline: none;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+.btn-icon{
+    position: absolute;
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+    right: 1rem;
+    top: 1rem;
+    width: 25px;
+    height: 25px;
+}
+.btn:hover{
+    transform: scale(1.1);
+    opacity: .7;
+}
+.token-form{
+    position: relative;
+    background-color: white;
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.2) ;
+    height: auto;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: none;
+    opacity: 0;
+    transform: scale(0);
+transition: var(--tran-05);
+}
+.token-form.active{
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.form-row{
+    margin: 1.2rem auto;
+    max-width: 450px;
+    width: 100%;
+}
+.form-row p{
+    margin: .3rem 0;
+}
+.form-row input{
+    position: relative;
+        border: 1px solid var(--border-color);
+        background-color: var(--panel-color);
+        padding: 1rem;
+        border-radius: 5px;
+        height: 100%;
+        width: 100%;
+        color: var(--text-color);
+        font-size: 15px;
+        font-weight: 400;
+        outline: none;
+}
+
+
+
+/* Crypto list  */
+
+.crypto-list{
+display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.crypto-list .single-crypto{
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 12px;
+        width: calc(100% / 3 - 10px);
+        padding: 25px 20px;
+        background-color: var(--box1-color);
+        transition: var(--tran-05);
+}
+
 .top .search-box input{
     position: absolute;
     border: 1px solid var(--border-color);
     background-color: var(--panel-color);
     padding: 0 25px 0 50px;
+    margin: 0 auto;
     border-radius: 5px;
     height: 100%;
     width: 100%;
@@ -257,6 +382,9 @@ nav.close ~ .dashboard .top{
     font-weight: 400;
     outline: none;
 }
+
+
+
 .top .search-box i{
     position: absolute;
     left: 15px;
@@ -266,13 +394,17 @@ nav.close ~ .dashboard .top{
     transform: translateY(-50%);
     color: var(--black-light-color);
 }
+
 .top img{
     width: 40px;
     border-radius: 50%;
 }
 .dashboard .dash-content{
-    padding-top: 50px;
+    padding-top: 30px;
+   
+    
 }
+
 .dash-content .title{
     display: flex;
     align-items: center;
@@ -360,6 +492,15 @@ nav.close ~ .dashboard .top{
     color: var(--text-color);
 }
 
+
+.crypto-box{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
 @media (max-width: 1000px) {
     nav{
         width: 73px;
@@ -409,6 +550,15 @@ nav.close ~ .dashboard .top{
         width: calc(100% / 2 - 15px);
         margin-top: 15px;
     }
+     .single-crypto{
+        width: calc(100% / 2 - 15px);
+        margin-top: 15px;
+    }
+        .dash-content .title {
+            display: flex;
+            align-items: center;
+            margin: 40px 0 30px 0;
+        }
 }
 @media (max-width: 560px) {
     .dash-content .boxes .box{

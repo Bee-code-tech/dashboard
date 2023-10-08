@@ -1,6 +1,9 @@
 const body = document.querySelector("body"),
       modeToggle = body.querySelector(".mode-toggle");
       sidebar = body.querySelector("nav");
+      btnActive = body.querySelector("#btn");
+      btnClose = body.querySelector("#close");
+      form = body.querySelector(".token-form");
       sidebarToggle = body.querySelector(".sidebar-toggle");
 
 let getMode = localStorage.getItem("mode");
@@ -29,4 +32,25 @@ sidebarToggle.addEventListener("click", () => {
     }else{
         localStorage.setItem("status", "open");
     }
+})
+btnActive.addEventListener("click", () => {
+    form.classList.add("active");
+    if(form.classList.contains("active")){
+        localStorage.setItem("formDisplay", "active");
+    }else{
+        localStorage.setItem("formDisplay", "open");
+    }
+})
+btnClose.addEventListener("click", () => {
+    form.classList.remove("active");
+    if(form.classList.contains("active")){
+        localStorage.setItem("formDisplay", "active");
+    }else{
+        localStorage.setItem("formDisplay", "open");
+    }
+})
+
+form.addEventListener('submit', (e)=> {
+  e.preventDefault();
+  console.log('form has been submited to the api');
 })
