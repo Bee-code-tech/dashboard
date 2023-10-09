@@ -16,10 +16,16 @@
     <title>Admin Dashboard Panel</title> 
 </head>
 <body>
+    <div class="alert-box ">
+        <p>Created Successfully</p>
+    </div>
+    <div class="alert-box-delete ">
+        <p>Token Deleted</p>
+    </div>
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="images/stack.png" alt="">
+                <img src="./assets/Images/stack.png" alt="">
             </div>
 
             <span class="logo_name">StackWave</span>
@@ -74,7 +80,7 @@
                 <input type="text" placeholder="Find users here...">
             </div>
             
-            <img src="images/avatar.svg" alt="">
+            <img src="./assets/Images/avatar.svg" alt="">
         </div>
 
         <div class="dash-content">
@@ -165,39 +171,42 @@
                 </button>
             </div>
             <form  class="token-form">
-                <div class="alert-box"></div>
+               
                 <h1 class="text text-center">Create New Token</h1>
                 <div class="btn btn-icon" id="close">
                     x
                 </div>
                 <div class="form-row">
                     <p>Name</p>
-                    <input type="text" placeholder="E.g Bitcoin " name="name" required>
+                    <input type="text" placeholder="E.g Bitcoin " id="name" name="name" required>
                 </div>
                 <div class="form-row">
                     <p>Alias</p>
-                    <input type="text" placeholder="E.g BTC " name="name" required>
+                    <input type="text" placeholder="E.g BTC " id="alias" name="alias" required>
                 </div>
                 <div class="form-row">
                     <p>Rate (N/$)</p>
-                    <input type="text" placeholder="E.g 760 " name="name" required>
+                    <input type="text" placeholder="E.g 760 "  id="rate" name="rate" required>
                 </div>
                 <div class="form-row">
                     <p>Wallet Address</p>
-                    <input type="text" placeholder="E.g 1Gx9FCknxSsLfFDzFdn75Xgqx95sDp38ir " name="name" required>
+                    <input type="text" placeholder="E.g 1Gx9FCknxSsLfFDzFdn75Xgqx95sDp38ir "  id="walletAddress" name="walletAddress" required>
                 </div>
                 <div class="form-row">
                     <p>Token Image</p>
-                    <input type="text" placeholder="E.g https://unsplash./image/get.com " name="name" required>
+                    <input type="text" placeholder="E.g https://unsplash./image/get.com " id="imgUri" name="imgUri" required>
                 </div>
                 <div class="btn-submit">
-                    <input type="submit" class="btn" value="Create Token">
+                    <input type="submit" class="btn" id="submit" value="Create Token">
                 </div>
             </form>
+            
+            <h1 class="loading">Loading Cryptos...</h1>
+
 
             <!-- Crupto list  -->
             <div class="crypto-list">
-                <div class="single-crypto">
+                <!-- <div class="single-crypto">
                     <div class="badge">
                         <p>Created</p>
                     </div>
@@ -220,57 +229,17 @@
                         <div class="btn delete">Delete</div>
                     </div>
                 </div>
-             
-                <div class="single-crypto">
-                    <div class="badge">
-                        <p>Created</p>
-                    </div>
-                    <div class="single-crypto-info">
-                        <div class="img-box">
-                            <img src="" alt="">
-                        </div>
-                        <div class="info">
-                            <h1>Bitcoin</h1>
-                            <p>Btc</p>
-                            <p>Rate: 767$</p>
-                        </div>
-                    </div>
-                    <div class="additional-info">
-                        <h2>Your Wallet Address</h2>
-                        <p>Blablabla</p>
-                    </div>
-                    <div class="btn-list">
-                        <div class="btn edit">Edit</div>
-                        <div class="btn delete">Delete</div>
-                    </div>
-                </div>
-                <div class="single-crypto">
-                    <div class="badge">
-                        <p>Created</p>
-                    </div>
-                    <div class="single-crypto-info">
-                        <div class="img-box">
-                            <img src="" alt="">
-                        </div>
-                        <div class="info">
-                            <h1>Bitcoin</h1>
-                            <p>Btc</p>
-                            <p>Rate: 767$</p>
-                        </div>
-                    </div>
-                    <div class="additional-info">
-                        <h2>Your Wallet Address</h2>
-                        <p>Blablabla</p>
-                    </div>
-                    <div class="btn-list">
-                        <div class="btn edit">Edit</div>
-                        <div class="btn delete">Delete</div>
-                    </div>
-                </div>
+              -->
+               
              
             </div>
         </div>
     </section>
+
+<!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"
+        integrity="sha512-emSwuKiMyYedRwflbZB2ghzX8Cw8fmNVgZ6yQNNXXagFzFOaQmbvQ1vmDkddHjm5AITcBIZfC7k4ShQSjgPAmQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/crypto.js"></script>

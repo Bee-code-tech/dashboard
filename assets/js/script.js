@@ -50,7 +50,3 @@ btnClose.addEventListener("click", () => {
     }
 })
 
-form.addEventListener('submit', (e)=> {
-  e.preventDefault();
-  console.log('form has been submited to the api');
-})

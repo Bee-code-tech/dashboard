@@ -289,11 +289,49 @@ nav.close ~ .dashboard .top{
 
 .alert-box{
     position: fixed;
-    background-color: green;
+    background-color: rgb(31, 235, 31);;
     width: 100%;
     height: auto;
     top: 0;
     right: 0;
+    padding: .8rem;
+    display: none;
+    z-index: 400;
+}
+.alert-box p{
+    color: white;
+    text-align: center;
+    line-height: 15px;
+    font-size: 14px;
+}
+.alert-box.active{
+    display: block;
+}
+
+.alert-box-delete{
+    position: fixed;
+    background-color: rgb(243, 24, 24);;
+    width: 100%;
+    height: auto;
+    top: 0;
+    right: 0;
+    padding: .8rem;
+    display: none;
+    z-index: 400;
+}
+.alert-box-delete p{
+    color: white;
+    text-align: center;
+    line-height: 15px;
+    font-size: 14px;
+}
+.alert-box-delete.active{
+    display: block;
+}
+
+.loading{
+    text-align: center;
+    color: var(--text-color);
 }
 
 
@@ -390,6 +428,10 @@ display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
+.crypto-list h1{
+    text-align: center;
+    margin: auto;
+}
 
  .single-crypto{
     position: relative;
@@ -432,9 +474,18 @@ display: flex;
 .single-crypto-info .img-box{
     width: 80px;
     height: 80px;
-    background-color: green;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
 }
+
+ img{
+    display: block;
+    width: 100%;
+}
+
 .additional-info{
     margin-left: 2rem;
 }
@@ -458,13 +509,17 @@ display: flex;
     display: flex;
     justify-content: center;
 }
-.edit{
+a:visited.edit, a:active.edit{
     background-color: rgba(21, 219, 21, 0.404);
-    color: var(--edit-color);
+        color: var(--edit-color);
 }
 .delete{
-    background-color: rgba(238, 30, 30, 0.404);
+    background-color: rgba(238, 30, 30, 0.3);
     color: var(--delete-color);
+}
+.edit{
+background-color: rgba(21, 219, 21, 0.404);
+    color: var(--edit-color);
 }
 
 .top .search-box input{
@@ -684,7 +739,7 @@ display: flex;
         }
     .token-info {
             margin: 1.3rem;
-            font-size: 14px;
+            font-size: 16px;
         }
     h1 {
             font-size: 19px;
@@ -693,13 +748,13 @@ display: flex;
         }
     
         h2 {
-            font-size: 12px;
+            font-size: 15px;
             font-weight: 500;
             color: var(--text-color);
         }
     
         p {
-            font-size: 12px;
+            font-size: 15px;
             font-weight: 300;
             color: var(--text-color);
         }
