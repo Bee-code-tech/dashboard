@@ -10,7 +10,7 @@ const alertBOx = document.querySelector('.alert-box');
 const alertDomDelete = document.querySelector('.alert-box-delete');
 
 // Api endpoint
-const url = "http://localhost:3006/crypto";
+const url = "https://stackfundz.onrender.com/crypto";
 
    const showCryptos = async ()=>{
     Loading.style.visibility = 'visible';
@@ -74,7 +74,7 @@ cryptosDom.addEventListener('click', async (e) => {
         const id = el.dataset.id 
         try {
              Loading.style.visibility = "visible";
-            await axios.delete(`http://localhost:3006/crypto/${id}`);
+            await axios.delete(`https://stackfundz.onrender.com/crypto/${id}`);
             alertDomDelete.classList.add('active')
         } catch (error) {
             console.log(error);
