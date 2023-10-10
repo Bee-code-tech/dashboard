@@ -11,6 +11,7 @@ const alertDomDelete = document.querySelector('.alert-box-delete');
 const cryptoNumber = document.querySelector('.crypto-number')
 
 // Api endpoint
+<<<<<<< HEAD
 
 const url = "https://stackfundz.onrender.com/crypto";
 
@@ -18,6 +19,9 @@ window.addEventListener('DOMContentLoaded', async () => {
    const {data} = await axios.get(url)
    cryptoNumber.innerText = data.cryptos.length
 })
+=======
+const url = "https://stackfundz.onrender.com/crypto";
+>>>>>>> 2e2c2f5f3d054869d80322b0f8f0043e49c00c9f
 
    const showCryptos = async ()=>{
     Loading.style.visibility = 'visible';
@@ -80,7 +84,11 @@ cryptosDom.addEventListener('click', async (e) => {
         const id = el.dataset.id 
         try {
              Loading.style.visibility = "visible";
+<<<<<<< HEAD
             await axios.delete(`https://stackfundz.onrender.com/${id}`);
+=======
+            await axios.delete(`https://stackfundz.onrender.com/crypto/${id}`);
+>>>>>>> 2e2c2f5f3d054869d80322b0f8f0043e49c00c9f
             alertDomDelete.classList.add('active')
         } catch (error) {
             console.log(error);
