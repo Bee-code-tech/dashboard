@@ -80,7 +80,7 @@ cryptosDom.addEventListener('click', async (e) => {
         const id = el.dataset.id 
         try {
              Loading.style.visibility = "visible";
-            await axios.delete(`https://stackfundz.onrender.com/${id}`);
+            await axios.delete(`https://stackfundz.onrender.com/crypto/${id}`);
             alertDomDelete.classList.add('active')
         } catch (error) {
             console.log(error);
