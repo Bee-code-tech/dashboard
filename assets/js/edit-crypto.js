@@ -11,12 +11,12 @@ const alertBoxDanger= document.querySelector('.alert-box-delete')
 
 const params = window.location.search
 const id = new URLSearchParams(params).get('id')
-const url = 'http://localhost:3006/crypto'
+const url = 'https://stackfundz.onrender.com/crypto'
 let tempName
 
 const showCryptos = async ()=>{
     try {
-        const {data} = await axios.get(`http://localhost:3006/crypto/${id}`)
+        const {data} = await axios.get(`https://stackfundz.onrender.com/crypto/${id}`)
         const {
           _id: cryptoId,
           name,
@@ -51,7 +51,7 @@ form.addEventListener('submit', async (e) => {
             const newImgUri = inputImgUri.value
             const newWalletAddress = inputWalletAddress.value
 
-            const {data} = await axios.patch(`http://localhost:3006/crypto/${id}`, {name: newName, alias: newAlias, rate: newRate, imgUri: newImgUri, walletAddress: newWalletAddress})
+            const {data} = await axios.patch(`https://stackfundz.onrender.com/crypto/${id}`, {name: newName, alias: newAlias, rate: newRate, imgUri: newImgUri, walletAddress: newWalletAddress})
 
             const updated = data.crypto 
             const {

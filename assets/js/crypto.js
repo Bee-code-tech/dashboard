@@ -8,9 +8,16 @@ const inputWalletAddress = document.querySelector('#walletAddress');
 const inputImgUri = document.querySelector('#imgUri');
 const alertBOx = document.querySelector('.alert-box');
 const alertDomDelete = document.querySelector('.alert-box-delete');
+const cryptoNumber = document.querySelector('.crypto-number')
 
 // Api endpoint
-const url = "http://localhost:3006/crypto";
+
+const url = "https://stackfundz.onrender.com/crypto";
+
+window.addEventListener('DOMContentLoaded', async () => {
+   const {data} = await axios.get(url)
+   cryptoNumber.innerText = data.cryptos.length
+})
 
    const showCryptos = async ()=>{
     Loading.style.visibility = 'visible';
@@ -27,7 +34,6 @@ const url = "http://localhost:3006/crypto";
         }
         const allCryptos = cryptos.map(crypto => {
             const { _id ,name,imgUri,alias,rate,walletAddress}= crypto
-            console.log(_id, name, imgUri, alias, rate, walletAddress);
             return `
                      <div class="single-crypto">
                     <div class="badge">
@@ -74,7 +80,7 @@ cryptosDom.addEventListener('click', async (e) => {
         const id = el.dataset.id 
         try {
              Loading.style.visibility = "visible";
-            await axios.delete(`http://localhost:3006/crypto/${id}`);
+            await axios.delete(`https://stackfundz.onrender.com/${id}`);
             alertDomDelete.classList.add('active')
         } catch (error) {
             console.log(error);
