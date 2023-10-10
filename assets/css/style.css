@@ -494,6 +494,7 @@ display: flex;
 }
 .additional-info p {
     margin-bottom: .9rem;
+    margin-left: -16px;
 }
 
 .btn-list{
@@ -766,7 +767,7 @@ background-color: rgba(21, 219, 21, 0.404);
             
          }
 }
-@media (max-width: 400px) {
+@media (max-width: 460px) {
     nav{
         width: 0px;
     }
