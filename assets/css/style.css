@@ -428,10 +428,7 @@ display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
-.crypto-list h1{
-    text-align: center;
-    margin: auto;
-}
+
 
  .single-crypto{
     position: relative;
@@ -486,14 +483,14 @@ display: flex;
 }
 
 .additional-info{
-    margin-left: 2rem;
+    margin: 1rem;
 }
 .additional-info h2{
     margin-bottom: .8rem;
 }
 .additional-info p {
     margin-bottom: .9rem;
-    margin-left: -16px;
+    font-size: 13px;
 }
 
 .btn-list{
@@ -754,7 +751,7 @@ background-color: rgba(21, 219, 21, 0.404);
         }
     
         p {
-            font-size: 15px;
+            font-size: 12px;
             font-weight: 300;
             color: var(--text-color);
         }
