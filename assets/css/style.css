@@ -502,7 +502,7 @@ display: flex;
 }
 
 .edit,.delete{
-    width: 40%;
+    width: 43%;
     display: flex;
     justify-content: center;
 }
