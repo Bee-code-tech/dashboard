@@ -115,7 +115,8 @@ try {
 //    Set back to default 
    inputName.value = ''
    inputAlias.value  = ''
-   inputRate.value = ""
+   inputBuyRate.value = ""
+   inputSellRate.value = ""
    inputWalletAddress.value = "";
    inputImgUri.value = ''
    alertBOx.classList.add('active')
