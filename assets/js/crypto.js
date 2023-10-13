@@ -3,7 +3,8 @@ const tokenForm = document.querySelector('.token-form');
 const Loading = document.querySelector('.loading');
 const inputName = document.querySelector('#name');
 const inputAlias = document.querySelector('#alias');
-const inputRate = document.querySelector('#rate');
+const inputBuyRate = document.querySelector('#buyRate');
+const inputSellRate = document.querySelector('#sellRate');
 const inputWalletAddress = document.querySelector('#walletAddress');
 const inputImgUri = document.querySelector('#imgUri');
 const alertBOx = document.querySelector('.alert-box');
@@ -33,7 +34,7 @@ window.addEventListener('DOMContentLoaded', async () => {
            
         }
         const allCryptos = cryptos.map(crypto => {
-            const { _id ,name,imgUri,alias,rate,walletAddress}= crypto
+            const { _id ,name,imgUri,alias,buyRate,sellRate,walletAddress}= crypto
             return `
                      <div class="single-crypto">
                     <div class="badge">
@@ -46,7 +47,8 @@ window.addEventListener('DOMContentLoaded', async () => {
                         <div class="info">
                             <h1>${name}</h1>
                             <p>${alias}</p>
-                            <p>Rate: ${rate}$</p>
+                            <p> Buy Rate: ${buyRate}$</p>
+                            <p>Sell Rate: ${sellRate}$</p>
                         </div>
                     </div>
                     <div class="additional-info">
@@ -101,12 +103,13 @@ e.preventDefault();
 
 const name = inputName.value 
 const alias = inputAlias.value 
-const rate = inputRate.value 
+const buyRate = inputBuyRate.value 
+const sellRate = inputSellRate.value 
 const walletAddress= inputWalletAddress.value
 const imgUri = inputImgUri.value
 
 try {
-   await axios.post(url, {name, alias, rate, walletAddress, imgUri})
+   await axios.post(url, {name, alias, buyRate,sellRate, walletAddress, imgUri})
 //    display tokens 
    showCryptos()
 //    Set back to default 
