@@ -740,6 +740,7 @@ background-color: rgba(21, 219, 21, 0.404);
         }
     h1 {
             font-size: 19px;
+            margin-top: 8px;
             font-weight: 500;
             color: var(--text-color);
         }
@@ -753,6 +754,7 @@ background-color: rgba(21, 219, 21, 0.404);
         p {
             font-size: 12px;
             font-weight: 300;
+            margin: 6px 0;
             color: var(--text-color);
         }
     .dash-content .boxes .box{
