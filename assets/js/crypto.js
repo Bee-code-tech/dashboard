@@ -10,12 +10,52 @@ const inputImgUri = document.querySelector('#imgUri');
 const alertBOx = document.querySelector('.alert-box');
 const alertDomDelete = document.querySelector('.alert-box-delete');
 const cryptoNumber = document.querySelector('.crypto-number')
+const userNumber = document.querySelector('.user-number')
 
 // Api endpoint
-
 const url = "https://stackfundz.onrender.com/crypto";
 
 window.addEventListener('DOMContentLoaded', async () => {
+    const users = await axios.get('http://localhost:3006/users')
+    userNumber.innerText = users.data.users.length;
+     
+    const usersList = users.data.users
+
+    usersList.map((user) =>  {
+        const {name, email, createdAt} = user
+        return `
+            <div class="data names">
+                        <span class="data-title">Username</span>
+                        <span class="data-list">John Doe</span>
+                        <span class="data-list">Pablo Richie</span>
+                        <span class="data-list">Jide Money</span>
+                    </div>
+                    <div class="data email">
+                        <span class="data-title">Email</span>
+                        <span class="data-list">johndoe@gmail.com</span>
+                        <span class="data-list">pablorichie@gmail.com</span>
+                        <span class="data-list">jidemoney@gmail.com</span>
+                    </div>
+                    <div class="data joined">
+                        <span class="data-title">Date</span>
+                        <span class="data-list">2022-02-12</span>
+                        <span class="data-list">2022-02-12</span>
+                        <span class="data-list">2022-02-13</span>
+                    </div>
+                    <div class="data type">
+                        <span class="data-title">Status</span>
+                        <span class="data-list">New</span>
+                        <span class="data-list">Member</span>
+                        <span class="data-list">Member</span>
+                    </div>
+                    <div class="data status">
+                        <span class="data-title">Payment</span>
+                        <span class="data-list">Verified</span>
+                        <span class="data-list">Non verified</span>
+                        <span class="data-list">Verified</span>
+                    </div>
+        `;
+    })
    const {data} = await axios.get(url)
    cryptoNumber.innerText = data.cryptos.length
 })
