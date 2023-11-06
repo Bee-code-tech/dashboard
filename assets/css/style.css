@@ -745,7 +745,7 @@ tr:nth-of-type(2n){
         }
         td{
             display: grid;
-            grid-template-columns: 15ch auto;
+            grid-template-columns: 1fr auto;
             padding: .8rem 1rem;
         }
         td::before{
@@ -800,7 +800,7 @@ tr:nth-of-type(2n){
         
                 td {
                     display: grid;
-                    grid-template-columns: 15ch auto;
+                    grid-template-columns: 1fr auto;
                     padding: .8rem 1rem;
                 }
         
