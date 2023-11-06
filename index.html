@@ -115,36 +115,18 @@
                     <span class="text">Recent Transactions</span>
                 </div>
 
-                <div class="activity-data">
-                    <div class="data names">
-                        <span class="data-title">Username</span>
-                        <span class="data-title">Email</span>
-                        <span class="data-title">Status</span>
-                        <span class="data-title">Date</span>
-                        <span class="data-title">UserId</span>
-                    </div>
-                    <div class="data email">
-                        <span class="data-list">Al-Ameen</span>
-                        <span class="data-list">johndoe@gmail.com</span>
-                        <span class="data-list">10-22-3303</span>
-                        <span class="data-list">verifeid</span>
-                        <span class="data-list">9930303030303</span>
-                    </div>
-                    <div class="data email">
-                        <span class="data-list">Al-Ameen</span>
-                        <span class="data-list">johndoe@gmail.com</span>
-                        <span class="data-list">10-22-3303</span>
-                        <span class="data-list">verifeid</span>
-                        <span class="data-list">9930303030303</span>
-                    </div>
-                   
-                    <!-- <div class="data status">
-                        <span class="data-title">Payment</span>
-                        <span class="data-list">Verified</span>
-                        <span class="data-list">Non verified</span>
-                        <span class="data-list">Verified</span>
-                    </div> -->
-                </div>
+                <table class="activity-data w-full">
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableList"></tbody>
+                </table>
             </div>
         </div>
     </section>

@@ -9,6 +9,7 @@
 :root{
     /* ===== Colors ===== */
     --primary-color: #0E4BF1;
+    --table-color: black;
     --bg-color: white;
     --panel-color:hsl(0, 0%, 96%);
     --text-color: #000;
@@ -60,6 +61,7 @@ body.dark{
     --primary-color: #3A3B3C;
     --bg-color: #3A3B3C;
     --panel-color: #242526;
+    --table-color: white;
     --text-color: #CCC;
     --black-light-color: #CCC;
     --border-color: #4D4C4C;
@@ -616,42 +618,26 @@ background-color: rgba(21, 219, 21, 0.404);
 .boxes .box.box3{
     background-color: var(--box3-color);
 }
-.dash-content .activity .activity-data{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.activity-data{
     width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    border-collapse: collapse;
+    overflow: hidden;
+    background-color: var(--panel-color);
 }
-.activity .activity-data{
-    display: flex;
-    flex-direction: column;
+th,td{
+    padding: 1.2rem;
+    color: var(--table-color);
 }
-.activity-data .data{
-    display: flex;
-    /* flex-direction: column; */
-    align-items: center;
-    width: 100%;
+th{
+    color: white;
+     background-color: var(--primary-color);
     text-align: left;
-    justify-content: space-between;
-    margin: auto 15px;
 }
-.activity-data .data-title{
-    font-size: 20px;
-    font-weight: 500;
-    text-align: left;
-    background-color: green;
-    width: 100%;
-    color: var(--text-color);
+tr:nth-of-type(2n){
+    background: hsl(0 0% 0% / 0.1);
 }
-.activity-data .data .data-list{
-    font-size: 18px;
-    font-weight: 400;
-    margin-top: 20px;
-    text-align: left;
-    width: 100%;
-    white-space: nowrap;
-    color: var(--text-color);
-}
+
 
 
 .crypto-box{
@@ -748,6 +734,27 @@ background-color: rgba(21, 219, 21, 0.404);
             margin: 1.3rem;
             font-size: 16px;
         }
+        th{
+            display: none;
+        }
+        td:first-child{
+            padding-top: 2rem;
+        }
+        td:last-child{
+            padding-bottom: 2rem;
+        }
+        td{
+            display: grid;
+            grid-template-columns: 15ch auto;
+            padding: .8rem 1rem;
+        }
+        td::before{
+            content: attr(data-cell) ':  ' ;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-right: 2rem;
+        }
+       
     h1 {
             font-size: 19px;
             margin-top: 8px;
@@ -779,6 +786,31 @@ background-color: rgba(21, 219, 21, 0.404);
     nav{
         width: 0px;
     }
+                th {
+                    display: none;
+                }
+        
+                td:first-child {
+                    padding-top: 2rem;
+                }
+        
+                td:last-child {
+                    padding-bottom: 2rem;
+                }
+        
+                td {
+                    display: grid;
+                    grid-template-columns: 15ch auto;
+                    padding: .8rem 1rem;
+                }
+        
+                td::before {
+                    content: attr(data-cell) ':  ';
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    margin-right: 2rem;
+                }
+              
     nav.close{
         width: 73px;
     }

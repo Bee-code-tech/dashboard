@@ -11,53 +11,43 @@ const alertBOx = document.querySelector('.alert-box');
 const alertDomDelete = document.querySelector('.alert-box-delete');
 const cryptoNumber = document.querySelector('.crypto-number')
 const userNumber = document.querySelector('.user-number')
+const tableList = document.querySelector('#tableList')
 
 // Api endpoint
 const url = "https://stackfundz.onrender.com/crypto";
 
 window.addEventListener('DOMContentLoaded', async () => {
-    const users = await axios.get('http://localhost:3006/users')
+    const users = await axios.get('https://stackfundz.onrender.com/users')
     userNumber.innerText = users.data.users.length;
-     
+     const { data } = await axios.get(url);
+     cryptoNumber.innerText = data.cryptos.length;
     const usersList = users.data.users
 
-    usersList.map((user) =>  {
-        const {name, email, createdAt} = user
-        return `
-            <div class="data names">
-                        <span class="data-title">Username</span>
-                        <span class="data-list">John Doe</span>
-                        <span class="data-list">Pablo Richie</span>
-                        <span class="data-list">Jide Money</span>
-                    </div>
-                    <div class="data email">
-                        <span class="data-title">Email</span>
-                        <span class="data-list">johndoe@gmail.com</span>
-                        <span class="data-list">pablorichie@gmail.com</span>
-                        <span class="data-list">jidemoney@gmail.com</span>
-                    </div>
-                    <div class="data joined">
-                        <span class="data-title">Date</span>
-                        <span class="data-list">2022-02-12</span>
-                        <span class="data-list">2022-02-12</span>
-                        <span class="data-list">2022-02-13</span>
-                    </div>
-                    <div class="data type">
-                        <span class="data-title">Status</span>
-                        <span class="data-list">New</span>
-                        <span class="data-list">Member</span>
-                        <span class="data-list">Member</span>
-                    </div>
-                    <div class="data status">
-                        <span class="data-title">Payment</span>
-                        <span class="data-list">Verified</span>
-                        <span class="data-list">Non verified</span>
-                        <span class="data-list">Verified</span>
-                    </div>
+    const dynamicList = usersList.map((user) =>  {
+      const { _id, name, email, createdAt } = user;
+      // Convert the createdAt string to a JavaScript Date object
+      const date = new Date(createdAt);
+
+      // Format the date as 'MMM D, YYYY' (e.g., 'Feb 3, 2023')
+      const formattedDate = date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
+      return `
+             <tr>
+                        <td data-cell="id">${_id}</td>
+                        <td data-cell="name">${name}</td>
+                        <td data-cell="email">${email}</td>
+                        <td data-cell="status">Verified</td>
+                        <td data-cell="date">${formattedDate}</td>
+                    </tr>
         `;
-    })
-   const {data} = await axios.get(url)
-   cryptoNumber.innerText = data.cryptos.length
+    }).join(' ')
+    tableList.innerHTML = dynamicList
+    console.log(tableList);
+    console.log(dynamicList);
+   
 })
 
    const showCryptos = async ()=>{
