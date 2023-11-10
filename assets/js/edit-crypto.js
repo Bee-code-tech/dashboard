@@ -3,6 +3,7 @@ const inputAlias = document.querySelector("#alias");
 const inputBuyRate = document.querySelector("#buyRate");
 const inputSellRate = document.querySelector("#sellRate");
 const inputImgUri = document.querySelector("#imgUri");
+const inputQrCodeUri = document.querySelector("#qrCode");
 const inputWalletAddress = document.querySelector("#walletAddress");
 const token = document.querySelector("#token");
 const submitBtn = document.querySelector("#submit");
@@ -28,6 +29,7 @@ const showCryptos = async () => {
       buyRate,
       sellRate,
       walletAddress,
+      qrCodeUri,
     } = data.singleCrypto;
     token.innerText = cryptoId;
 
@@ -36,6 +38,7 @@ const showCryptos = async () => {
     inputBuyRate.value = buyRate;
     inputSellRate.value = sellRate;
     inputImgUri.value = imgUri;
+    inputQrCodeUri.value = qrCodeUri;
     inputWalletAddress.value = walletAddress;
   } catch (error) {
     console.log(error);
@@ -53,6 +56,7 @@ form.addEventListener("submit", async (e) => {
     const newBuyRate = inputBuyRate.value;
     const newSellRate = inputSellRate.value;
     const newImgUri = inputImgUri.value;
+    const newQrCodeUri = inputQrCodeUri.value;
     const newWalletAddress = inputWalletAddress.value;
 
     const { data } = await axios.patch(
@@ -63,12 +67,13 @@ form.addEventListener("submit", async (e) => {
         buyRate: newBuyRate,
         sellRate: newSellRate,
         imgUri: newImgUri,
+        qrCodeUri: newQrCodeUri,
         walletAddress: newWalletAddress,
       }
     );
 
     const updated = data.crypto;
-    const { name, imgUri, alias, rate, walletAddress } = updated;
+    const { name, imgUri, alias, sellRate, buyRate, qrCodeUri, walletAddress } = updated;
     // reassign new data
 
     inputName.value = name;
@@ -76,6 +81,7 @@ form.addEventListener("submit", async (e) => {
     inputBuyRate.value = buyRate;
     inputSellRate.value = sellRate;
     inputImgUri.value = imgUri;
+    inputQrCodeUri.value = qrCodeUri;
     inputWalletAddress.value = walletAddress;
     alertBox.classList.add("active");
   } catch (error) {

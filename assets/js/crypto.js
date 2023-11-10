@@ -7,6 +7,7 @@ const inputBuyRate = document.querySelector('#buyRate');
 const inputSellRate = document.querySelector('#sellRate');
 const inputWalletAddress = document.querySelector('#walletAddress');
 const inputImgUri = document.querySelector('#imgUri');
+const inputQrCodeUri = document.querySelector('#qrCode');
 const alertBOx = document.querySelector('.alert-box');
 const alertDomDelete = document.querySelector('.alert-box-delete');
 const cryptoNumber = document.querySelector('.crypto-number')
@@ -45,8 +46,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         `;
     }).join(' ')
     tableList.innerHTML = dynamicList
-    console.log(tableList);
-    console.log(dynamicList);
+  
    
 })
 
@@ -137,9 +137,10 @@ const buyRate = inputBuyRate.value
 const sellRate = inputSellRate.value 
 const walletAddress= inputWalletAddress.value
 const imgUri = inputImgUri.value
+const qrCodeUri = inputQrCodeUri.value
 
 try {
-   await axios.post(url, {name, alias, buyRate,sellRate, walletAddress, imgUri})
+   await axios.post(url, {name, alias, buyRate,sellRate, walletAddress, imgUri, qrCodeUri})
 //    display tokens 
    showCryptos()
 //    Set back to default 
@@ -149,8 +150,8 @@ try {
    inputSellRate.value = ""
    inputWalletAddress.value = "";
    inputImgUri.value = ''
+   inputQrCodeUri.value = ''
    alertBOx.classList.add('active')
-   console.log(alertBOx);
    window.location.reload(true);
 } catch (error) {
     console.log(error);
